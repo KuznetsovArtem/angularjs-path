@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+</head>
+<body ng-app="demoApp">
+
+    <section ng-controller="AppFstCtrl">
+        <button ng-click="doLog()">Test</button>
+    </section>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+    <script>
+        var app = angular.module('demoApp', []);
+
+        app.controller('AppFstCtrl', function($scope, $http) {
+            $scope.doLog = function() {
+                console.log('App name: ' + app.name)
+            }
+        });
+    </script>
+</body>
+</html>

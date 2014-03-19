@@ -3,22 +3,17 @@
 <head>
     <title>Demo</title>
 </head>
-<body ng-app="demoApp">
+<body>
 
-    <section ng-controller="AppFstCtrl">
-        <button ng-click="doLog()">Test</button>
+    <section ng-app="demoApp" >
+        <div ng-controller="appCtrl">
+            <button ng-click="doLog()">Test</button>
+            <button ng-click="appCtrl.doLog2()">Test2</button>
+        </div>
     </section>
 
+    <script src="js/libs/angular/angular.min.js"></script>
+    <script src="js/main.js"></script>
 
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
-    <script>
-        var app = angular.module('demoApp', []);
-
-        app.controller('AppFstCtrl', function($scope, $http) {
-            $scope.doLog = function() {
-                console.log('App name: ' + app.name)
-            }
-        });
-    </script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+{
+  "name": "angularjs-path",
+  "version": "0.0.1",
+  "description": "Bower conf",
+  "main": "main.js",
+  "moduleType": [
+    "globals"
+  ],
+  "authors": [
+    "Artem Kuznetsov"
+  ],
+  "license": "MIT",
+  "homepage": "/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.14"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "angularjs-path",
+  "version": "0.0.0",
+  "description": "package for project",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "~1.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KuznetsovArtem/angularjs-path.git"
+  },
+  "author": "Artem Kuznetsov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KuznetsovArtem/angularjs-path/issues"
+  },
+  "homepage": "https://github.com/KuznetsovArtem/angularjs-path"
+}

@@ -10,6 +10,22 @@
             <button ng-click="doLog()">Test</button>
             <button ng-click="appCtrl.doLog2()">Test2</button>
         </div>
+
+        <age-check age="10"></age-check>
+        <age-check age="22"></age-check>
+        <age-check age="12"></age-check>
+        <age-check age="32"></age-check>
+        <age-check></age-check>
+        <age-check></age-check>
+        <age-check></age-check>
+        <age-check></age-check>
+
+        <script type="text/ng-template" id="ageCheck.html">
+            <input ng-model="age" type="text"/>
+            <button ng-click="check()">Ok</button>
+            <span>{{age}} {{message}}</span>
+            <br>
+        </script>
     </section>
 
     <script src="js/libs/angular/angular.min.js"></script>

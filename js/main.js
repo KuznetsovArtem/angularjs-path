@@ -17,3 +17,42 @@ app.controller('appCtrl', function($scope) {
 
     return $scope.appCtrl = self;
 });
+
+app.factory('config', function() {
+    return {
+        messages : {
+            ok: 'ok',
+            error: 'too young'
+        },
+        allowedAge: 21
+    }
+});
+
+app.directive('ageCheck', function() {
+   return {
+       restrict: "E",
+       age: "@",
+       scope: {},
+       templateUrl: 'ageCheck.html',
+       link: function(scope, element) {
+
+       },
+       controller: function($scope, $attrs, $element, config) {
+
+           $scope.$watch("age", function(val) {
+               if(!val || val <= config.allowedAge) {
+                   $scope.message = config.messages.error;
+               } else {
+                   $scope.message = config.messages.ok;
+               }
+           });
+
+           function check() {
+               console.log($scope, $attrs, config);
+           }
+
+           $scope.age = $attrs.age;
+           $scope.check = check;
+       }
+   }
+});

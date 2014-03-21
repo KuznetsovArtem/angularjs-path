@@ -11,7 +11,7 @@
             <button ng-click="appCtrl.doLog2()">Test2</button>
         </div>
 
-        <age-check age="10"></age-check>
+        <age-check calc-age="" name="Artem" age="10"></age-check>
         <age-check age="22"></age-check>
         <age-check age="12"></age-check>
         <age-check age="32"></age-check>
@@ -23,7 +23,8 @@
         <script type="text/ng-template" id="ageCheck.html">
             <input ng-model="age" type="text"/>
             <button ng-click="check()">Ok</button>
-            <span>{{age}} {{message}}</span>
+            <span>{{age}} {{message}} {{name}}</span>
+            <input ng-model="name" type="text"/>
             <br>
         </script>
     </section>

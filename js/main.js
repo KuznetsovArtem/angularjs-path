@@ -15,6 +15,8 @@ app.controller('appCtrl', function($scope) {
         console.log('App name v2: ' + app.name)
     }
 
+    $scope.name = '';
+
     return $scope.appCtrl = self;
 });
 
@@ -31,8 +33,10 @@ app.factory('config', function() {
 app.directive('ageCheck', function() {
    return {
        restrict: "E",
-       age: "@",
-       scope: {},
+       scope: {
+           age: "@",
+           name: "="
+       },
        templateUrl: 'ageCheck.html',
        link: function(scope, element) {
 
@@ -48,10 +52,9 @@ app.directive('ageCheck', function() {
            });
 
            function check() {
-               console.log($scope, $attrs, config);
+               console.log($scope, $attrs, config, $scope.name);
            }
 
-           $scope.age = $attrs.age;
            $scope.check = check;
        }
    }

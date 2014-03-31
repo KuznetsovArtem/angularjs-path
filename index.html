@@ -13,12 +13,6 @@
 
         <age-check calc-age="" name="Artem" age="10"></age-check>
         <age-check age="22"></age-check>
-        <age-check age="12"></age-check>
-        <age-check age="32"></age-check>
-        <age-check></age-check>
-        <age-check></age-check>
-        <age-check></age-check>
-        <age-check></age-check>
 
         <script type="text/ng-template" id="ageCheck.html">
             <input ng-model="age" type="text"/>
@@ -29,8 +23,27 @@
         </script>
     </section>
 
-    <script src="js/libs/angular/angular.min.js"></script>
-    <script src="js/main.js"></script>
+    <hr>
+
+    <section id="sampleAppContainer" ng-app="sampleApp">
+        <ng-view></ng-view>
+
+        <script type="text/ng-template" id="index.tpl">
+            <span>{{name}}</span>
+            <h2>{{clickCount}}</h2>
+            <button ng-click="inc()">More</button>
+        </script>
+        <script type="text/ng-template" id="test.tpl">
+            <h2>Test</h2>
+        </script>
+    </section>
+
+    <script src="/angularjs-path/js/libs/angular/angular.min.js"></script>
+    <script src="/angularjs-path/js/libs/angular-route/angular-route.min.js"></script>
+    <script src="/angularjs-path/js/main.js"></script>
+    <script>
+        angular.bootstrap(document.getElementById('sampleAppContainer'), ['sampleApp'])
+    </script>
 
 </body>
 </html>

@@ -1,7 +1,35 @@
 /**
  * Created by ASKuznetsov on 3/18/14.
  */
+
+var rApp = angular.module('sampleApp', ['ngRoute']);
+
+rApp.config(function($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl: 'index.tpl',
+            controller: 'indexCtrl'
+        })
+        .when('/test', {
+            templateUrl: 'test.tpl'
+        })
+        .otherwise({
+            template: 'nothing to show!'
+        })
+
+}).controller('indexCtrl', ['$scope', function(s){
+    s.name = "Index!";
+    s.clickCount = 0;
+
+    s.inc = function() {
+        s.clickCount++
+    }
+}]);
+
+
+
 var app = angular.module('demoApp', []);
+
 
 app.controller('appCtrl', function($scope) {
 
@@ -19,6 +47,10 @@ app.controller('appCtrl', function($scope) {
 
     return $scope.appCtrl = self;
 });
+
+app.controller('isolateScopeCtrl', function($sc) {
+
+})
 
 app.factory('config', function() {
     return {

@@ -10,6 +10,10 @@ rApp.config(function($routeProvider) {
             templateUrl: 'index.tpl',
             controller: 'indexCtrl'
         })
+        .when('/app', {
+            templateUrl: 'app.tpl',
+            controller: 'appCtrl'
+        })
         .when('/test', {
             templateUrl: 'test.tpl'
         })
@@ -24,7 +28,48 @@ rApp.config(function($routeProvider) {
     s.inc = function() {
         s.clickCount++
     }
+}]).controller('appCtrl', ['$scope', '$q', 'appSettings', '$injector', function(s, q, settings, injector) {
+
+    s.appName = settings.appName;
+
+    var defer = q.defer();
+
+    defer.promise
+        .then(function(msg) {
+            console.log('first console.log from promise say: ' + msg);
+            return "Hey!"
+        }).then(function(msg) {
+            console.log('second console.log: ' + msg);
+            return msg;
+        }).then(function(msg) {
+            console.log('third console.log: ' + msg);
+        }).then(function() {
+            s.appName = settings.secondAppName
+        })
+
+
+    setTimeout(function() {
+        defer.resolve("Hi!");
+    }, settings.deferDelay)
+
+    // injector sample
+    injector.invoke(function(aditionSettings) {
+        s.author = aditionSettings.author;
+    });
+
 }]);
+
+rApp.factory('appSettings', function() {
+    return {
+        appName: "Some test App",
+        deferDelay: 3000,
+        secondAppName: "App for defer test"
+    }
+}).factory('aditionSettings', function() {
+    return {
+        author: "Artem"
+    }
+});
 
 
 

@@ -23,6 +23,11 @@ rApp.config(function($routeProvider) {
 
 }).controller('indexCtrl', ['$scope', function(s){
     s.name = "Index!";
+
+    s.ui = {
+        btnState: 'Hide'
+    }
+
     s.clickCount = 0;
 
     s.inc = function() {
@@ -55,9 +60,11 @@ rApp.config(function($routeProvider) {
     // injector sample
     injector.invoke(function(aditionSettings) {
         s.author = aditionSettings.author;
+
     });
 
 }]);
+
 
 rApp.factory('appSettings', function() {
     return {
@@ -72,7 +79,10 @@ rApp.factory('appSettings', function() {
 });
 
 
-
+/**
+ * Second App
+ * @type {*|module}
+ */
 var app = angular.module('demoApp', []);
 
 

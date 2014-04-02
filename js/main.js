@@ -65,6 +65,11 @@ rApp.config(function($routeProvider) {
 
 }]);
 
+rApp.directive('tsDer', function() {
+    return function(scope, element) {
+        element.addClass('test');
+    }
+})
 
 rApp.factory('appSettings', function() {
     return {

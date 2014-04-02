@@ -22,5 +22,9 @@
   "dependencies": {
     "angular": "~1.2.14",
     "angular-route": "~1.2.15"
+  },
+  "devDependencies": {
+    "jasmine": "~2.0.0",
+    "angular-mocks": "~1.2.15"
   }
 }

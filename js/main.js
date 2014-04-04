@@ -33,9 +33,20 @@ rApp.config(function($routeProvider) {
     s.inc = function() {
         s.clickCount++
     }
-}]).controller('appCtrl', ['$scope', '$q', 'appSettings', '$injector', function(s, q, settings, injector) {
+}]).controller('appCtrl', ['$scope', '$q', 'appSettings', '$injector', '$http', function(s, q, settings, injector, http) {
 
     s.appName = settings.appName;
+
+    function testSuccess(data) {
+        console.log(data);
+    }
+
+
+    http.get("http://localhost:3001/json")
+        .success(function(data) {
+            console.log(data);
+        });
+
 
     var defer = q.defer();
 
@@ -50,7 +61,12 @@ rApp.config(function($routeProvider) {
             console.log('third console.log: ' + msg);
         }).then(function() {
             s.appName = settings.secondAppName
-        })
+            return "http://localhost:3001/json"
+        }).then(function(url) {
+            http.get(url).success(testSuccess);
+        }).then(function() {
+            console.log('end.')
+        });
 
 
     setTimeout(function() {
